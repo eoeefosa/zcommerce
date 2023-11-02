@@ -5,7 +5,6 @@ import 'package:zcommerce/view/feed.dart';
 import 'package:zcommerce/view/help.dart';
 import 'package:zcommerce/view/homescreen.dart';
 import 'package:zcommerce/widgets/searchcontainer.dart';
-import 'package:zcommerce/widgets/searchwidget.dart';
 
 import '../widgets/cartwidget.dart';
 
@@ -56,16 +55,60 @@ class _ScreenState extends State<Screens> {
                 SizedBox(width: 8)
               ],
             )
-          : AppBar(
-              backgroundColor: Colors.black87,
-              title: Text(screenTitles[_selectedIndex]),
-              actions: [
-                IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-                const SizedBox(width: 16),
-                const CartWiget(count: 10),
-                const SizedBox(width: 16)
-              ],
-            ),
+          : _selectedIndex == 3
+              ? const AccountAppBar()
+              : AppBar(
+                  elevation: 1,
+                  backgroundColor: Colors.black87,
+                  title: Text(screenTitles[_selectedIndex]),
+                  actions: [
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.search)),
+                    const SizedBox(width: 16),
+                    const CartWiget(count: 10),
+                    const SizedBox(width: 16)
+                  ],
+                  //   bottom:
+                  //       ? AppBar(
+                  //           elevation: 1,
+                  //           backgroundColor: Colors.black87,
+                  //           title: Row(
+                  //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //               children: [
+                  //                 const Padding(
+                  //                   padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  //                   child: Column(
+                  //                     crossAxisAlignment: CrossAxisAlignment.start,
+                  //                     children: [
+                  //                       Text(
+                  //                         'Welcome!',
+                  //                         style: TextStyle(
+                  //                           fontSize: 16,
+                  //                         ),
+                  //                       ),
+                  //                       Text(
+                  //                         "Enter your account",
+                  //                         style: TextStyle(
+                  //                           fontSize: 12,
+                  //                         ),
+                  //                       )
+                  //                     ],
+                  //                   ),
+                  //                 ),
+                  //                 ElevatedButton(
+                  //                   onPressed: () {},
+                  //                   style: ElevatedButton.styleFrom(
+                  //                     backgroundColor: Colors.yellow[900],
+                  //                   ),
+                  //                   child: const Padding(
+                  //                     padding: EdgeInsets.all(10.0),
+                  //                     child: Text('LOGIN'),
+                  //                   ),
+                  //                 )
+                  //               ]),
+                  //         )
+                  //       : null,
+                ),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         // backgroundColor: Colors.white,
@@ -105,4 +148,78 @@ class _ScreenState extends State<Screens> {
       ),
     );
   }
+}
+
+class AccountAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const AccountAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.black87,
+      title: const Text("Account"),
+      flexibleSpace: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        // crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Spacer(flex: 2),
+          Padding(
+            padding: const EdgeInsets.only(top: 40, right: 16, left: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 4),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Welcome!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Text(
+                        "Enter your account",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.yellow[900],
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text('LOGIN'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Spacer()
+        ],
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.search),
+        ),
+        const SizedBox(width: 16),
+        const CartWiget(count: 10),
+        const SizedBox(width: 16),
+      ],
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(
+      kToolbarHeight + 56.0); // Adjust the height as needed
 }
