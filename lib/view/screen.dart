@@ -4,6 +4,8 @@ import 'package:zcommerce/view/categories.dart';
 import 'package:zcommerce/view/feed.dart';
 import 'package:zcommerce/view/help.dart';
 import 'package:zcommerce/view/homescreen.dart';
+import 'package:zcommerce/widgets/searchcontainer.dart';
+import 'package:zcommerce/widgets/searchwidget.dart';
 
 import '../widgets/cartwidget.dart';
 
@@ -31,32 +33,39 @@ class _ScreenState extends State<Screens> {
     });
   }
 
-  String _getTitle(int index) {
-    String name = 'Home';
-    switch (index) {
-      case 0:
-        name = 'why';
-      case 1:
-        name = 'Category';
-        return name;
-    }
-
-    return name;
-  }
+  static List<String> screenTitles = [
+    'Home',
+    'Categories',
+    'Feed',
+    'Account',
+    'Help',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black87,
-        title: const Text("Help"),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          const SizedBox(width: 16),
-          const CartWiget(count: 10),
-          const SizedBox(width: 16)
-        ],
-      ),
+      appBar: _selectedIndex < 2
+          ? AppBar(
+              backgroundColor: Colors.black87,
+              title: SearchContainer(
+                onSearch: (search) {},
+              ),
+              actions: const [
+                // SizedBox(width: 8),
+                CartWiget(count: 10),
+                SizedBox(width: 8)
+              ],
+            )
+          : AppBar(
+              backgroundColor: Colors.black87,
+              title: Text(screenTitles[_selectedIndex]),
+              actions: [
+                IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+                const SizedBox(width: 16),
+                const CartWiget(count: 10),
+                const SizedBox(width: 16)
+              ],
+            ),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         // backgroundColor: Colors.white,

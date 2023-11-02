@@ -13,7 +13,7 @@ class CartWiget extends StatelessWidget {
       children: [
         const Center(
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(2.0),
             child: Icon(
               Icons.shopping_cart_outlined,
               // TODO : USING STYLE FOR OUTSIDE TO SET THE DEFAULT VALUES
@@ -25,7 +25,7 @@ class CartWiget extends StatelessWidget {
         count == 0
             ? Container()
             : Positioned(
-                right: 6,
+                right: 0,
                 top: 10,
                 child: Container(
                   // padding: const EdgeInsets.all(2),
