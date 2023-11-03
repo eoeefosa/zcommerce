@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zcommerce/view/account.dart';
 import 'package:zcommerce/view/categories.dart';
-import 'package:zcommerce/view/feed.dart';
+import 'package:zcommerce/view/feedscreen/feed.dart';
 import 'package:zcommerce/view/help.dart';
 import 'package:zcommerce/view/homescreen.dart';
 import 'package:zcommerce/widgets/searchcontainer.dart';
@@ -74,10 +74,9 @@ class _ScreenState extends State<Screens> {
         // backgroundColor: Colors.white,
         selectedItemColor: const Color.fromRGBO(245, 127, 23, 1),
         unselectedItemColor: Colors.black87,
-
         showUnselectedLabels: true,
         currentIndex: _selectedIndex,
-
+        type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
