@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zcommerce/view/feedscreen/blackfriday.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({super.key});
@@ -8,6 +9,7 @@ class FeedScreen extends StatelessWidget {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
+          backgroundColor: Colors.grey[300],
           body: Column(
             children: [
               Material(
@@ -36,7 +38,7 @@ class FeedScreen extends StatelessWidget {
               // TODO: ALLOW SLIDE SCROLLING OF APPBAR
               const Expanded(
                 child: TabBarView(children: [
-                  Center(child: Text('Black Friday context')),
+                  BlackFriday(),
                   Center(child: Text('Explorer context')),
                   Center(child: Text('Following context')),
                 ]),

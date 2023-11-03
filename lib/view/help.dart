@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import '../widgets/added_card.dart';
 import '../widgets/custom_title.dart';
 
-class HelpScreen extends StatelessWidget {
+class HelpScreen extends StatefulWidget {
   const HelpScreen({super.key});
+
+  @override
+  State<HelpScreen> createState() => _HelpScreenState();
+}
+
+class _HelpScreenState extends State<HelpScreen> {
+  bool pushvalue = true;
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +30,76 @@ class HelpScreen extends StatelessWidget {
                 CustomListTile(title: "Privacy Policy"),
               ]),
               const SizedBox(height: 16.0),
-              const AddedCards(title: "SETTINGS", childern: [
-                CustomListTile(title: "Push Notification"),
-                CustomListTile(title: "Country"),
-                CustomListTile(title: "Language"),
+              AddedCards(title: "SETTINGS", childern: [
+                CustomListTile(
+                  title: "Push Notification",
+                  child: Switch(
+                      value: pushvalue,
+                      activeColor: Colors.yellow[900],
+                      onChanged: (bool newValue) {
+                        setState(() {
+                          pushvalue = newValue;
+                        });
+                      }),
+                ),
+                CustomListTile(
+                    title: "Country",
+                    child: TextButton(
+                        style: TextButton.styleFrom(
+                            padding: const EdgeInsets.all(0)),
+                        onPressed: () {},
+                        child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "NIGERIA",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black54,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(width: 4),
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                color: Colors.black87,
+                                size: 15,
+                              ),
+                            ]))),
+                const CustomListTile(
+                  title: "Language",
+                  child: Text(
+                    "ENGLISH",
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
               ]),
               const SizedBox(height: 16.0),
               const AddedCards(title: "APP INFO", childern: [
                 //TODO: USE STATE AND DB TO GET THIS
-                CustomListTile(title: "App Version 14.4.3"),
-                CustomListTile(title: "Cache used: 0 B"),
+                CustomListTile(
+                  title: "App Version 14.4.3",
+                  child: Text(
+                    "UP TO DATE",
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+                CustomListTile(
+                  title: "Cache used: 0 B",
+                  child: Text(
+                    "CLEAR",
+                    style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ])
             ],
           ),
