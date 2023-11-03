@@ -68,46 +68,6 @@ class _ScreenState extends State<Screens> {
                     const CartWiget(count: 10),
                     const SizedBox(width: 16)
                   ],
-                  //   bottom:
-                  //       ? AppBar(
-                  //           elevation: 1,
-                  //           backgroundColor: Colors.black87,
-                  //           title: Row(
-                  //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //               children: [
-                  //                 const Padding(
-                  //                   padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  //                   child: Column(
-                  //                     crossAxisAlignment: CrossAxisAlignment.start,
-                  //                     children: [
-                  //                       Text(
-                  //                         'Welcome!',
-                  //                         style: TextStyle(
-                  //                           fontSize: 16,
-                  //                         ),
-                  //                       ),
-                  //                       Text(
-                  //                         "Enter your account",
-                  //                         style: TextStyle(
-                  //                           fontSize: 12,
-                  //                         ),
-                  //                       )
-                  //                     ],
-                  //                   ),
-                  //                 ),
-                  //                 ElevatedButton(
-                  //                   onPressed: () {},
-                  //                   style: ElevatedButton.styleFrom(
-                  //                     backgroundColor: Colors.yellow[900],
-                  //                   ),
-                  //                   child: const Padding(
-                  //                     padding: EdgeInsets.all(10.0),
-                  //                     child: Text('LOGIN'),
-                  //                   ),
-                  //                 )
-                  //               ]),
-                  //         )
-                  //       : null,
                 ),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
