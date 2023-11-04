@@ -25,7 +25,7 @@ class CategoriesScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Card(
-                      color: Colors.black,
+                      color: Colors.red,
                       child: SizedBox(
                         height: 50,
                         width: size.width * .8,

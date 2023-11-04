@@ -23,4 +23,5 @@ flutter:
     - assets/images/
     - assets/images/yu.jpg
     - assets/images/e.jpg
+    - shorebird.yaml
 
