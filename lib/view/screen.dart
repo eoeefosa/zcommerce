@@ -7,6 +7,7 @@ import 'package:zcommerce/view/homescreen.dart';
 import 'package:zcommerce/widgets/searchcontainer.dart';
 
 import '../widgets/cartwidget.dart';
+import '../widgets/jumiaSearch.dart';
 
 class Screens extends StatefulWidget {
   const Screens({super.key});
@@ -63,7 +64,10 @@ class _ScreenState extends State<Screens> {
                   title: Text(screenTitles[_selectedIndex]),
                   actions: [
                     IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.search)),
+                        onPressed: () {
+                          showSearch(context: context, delegate: JumaiSearch());
+                        },
+                        icon: const Icon(Icons.search)),
                     const SizedBox(width: 16),
                     const CartWiget(count: 10),
                     const SizedBox(width: 16)
@@ -168,7 +172,9 @@ class AccountAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            showSearch(context: context, delegate: JumaiSearch());
+          },
           icon: const Icon(Icons.search),
         ),
         const SizedBox(width: 16),

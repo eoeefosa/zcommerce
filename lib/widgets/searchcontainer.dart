@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zcommerce/widgets/jumiaSearch.dart';
 
 class SearchContainer extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
@@ -27,6 +28,9 @@ class SearchContainer extends StatelessWidget {
             child: TextField(
               controller: controller,
               onSubmitted: onSearch,
+              onTap: () {
+                showSearch(context: context, delegate: JumaiSearch());
+              },
               decoration: const InputDecoration(
                 hintText: 'Search for products',
                 border: InputBorder.none,
