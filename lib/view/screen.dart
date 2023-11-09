@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zcommerce/view/account.dart';
-import 'package:zcommerce/view/categories.dart';
+import 'package:zcommerce/view/category%20screen/categories.dart';
 import 'package:zcommerce/view/feedscreen/feed.dart';
 import 'package:zcommerce/view/help.dart';
 import 'package:zcommerce/view/homescreen.dart';
