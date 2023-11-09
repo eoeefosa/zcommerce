@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zcommerce/widgets/custom_courser.dart';
+import 'package:zcommerce/widgets/productitem.dart';
 
 import '../assets/images.dart';
 
@@ -49,30 +50,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     return const Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
-                      child: HomeCategoryItems(),
+                      child: ProductItems(),
                     );
                   }),
             ),
           ],
         ));
-  }
-}
-
-class HomeCategoryItems extends StatelessWidget {
-  const HomeCategoryItems({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ClipRRect(
-          child: Image.asset(ImagesAssets.fastdelivery),
-        ),
-        const Expanded(child: Text("Black Friday")),
-      ],
-    );
   }
 }
 
