@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zcommerce/widgets/cartwidget.dart';
+import 'package:zcommerce/widgets/search_icon.dart';
 
 class NamedAppBar extends StatelessWidget {
   const NamedAppBar({
@@ -35,13 +36,10 @@ class S$CIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       children: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.search),
-        ),
-        const CartWiget(count: 1),
+        SearchIcon(),
+        CartWiget(),
       ],
     );
   }

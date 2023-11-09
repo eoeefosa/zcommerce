@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CartWiget extends StatelessWidget {
-  final int count;
   const CartWiget({
     super.key,
-    required this.count,
   });
 
   @override
   Widget build(BuildContext context) {
+    const count = 10;
     return Stack(
       children: [
         const Center(
@@ -37,12 +36,12 @@ class CartWiget extends StatelessWidget {
                     maxHeight: 16,
                     minHeight: 16,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(3.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(3.0),
                     child: Center(
                       child: Text(
                         '$count',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 10,
                           decorationThickness: 0,

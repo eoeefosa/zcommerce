@@ -4,10 +4,10 @@ import 'package:zcommerce/view/category%20screen/categories.dart';
 import 'package:zcommerce/view/feedscreen/feed.dart';
 import 'package:zcommerce/view/help.dart';
 import 'package:zcommerce/view/homescreen.dart';
+import 'package:zcommerce/widgets/search_icon.dart';
 import 'package:zcommerce/widgets/searchcontainer.dart';
 
 import '../widgets/cartwidget.dart';
-import '../widgets/jumiaSearch.dart';
 
 class Screens extends StatefulWidget {
   const Screens({super.key});
@@ -52,7 +52,7 @@ class _ScreenState extends State<Screens> {
               ),
               actions: const [
                 // SizedBox(width: 8),
-                CartWiget(count: 10),
+                CartWiget(),
                 SizedBox(width: 8)
               ],
             )
@@ -62,15 +62,11 @@ class _ScreenState extends State<Screens> {
                   elevation: 1,
                   backgroundColor: Colors.black87,
                   title: Text(screenTitles[_selectedIndex]),
-                  actions: [
-                    IconButton(
-                        onPressed: () {
-                          showSearch(context: context, delegate: JumaiSearch());
-                        },
-                        icon: const Icon(Icons.search)),
-                    const SizedBox(width: 16),
-                    const CartWiget(count: 10),
-                    const SizedBox(width: 16)
+                  actions: const [
+                    SearchIcon(),
+                    SizedBox(width: 16),
+                    CartWiget(),
+                    SizedBox(width: 16)
                   ],
                 ),
       body: pages[_selectedIndex],
@@ -170,16 +166,11 @@ class AccountAppBar extends StatelessWidget implements PreferredSizeWidget {
           const Spacer()
         ],
       ),
-      actions: [
-        IconButton(
-          onPressed: () {
-            showSearch(context: context, delegate: JumaiSearch());
-          },
-          icon: const Icon(Icons.search),
-        ),
-        const SizedBox(width: 16),
-        const CartWiget(count: 10),
-        const SizedBox(width: 16),
+      actions: const [
+        SearchIcon(),
+        SizedBox(width: 16),
+        CartWiget(),
+        SizedBox(width: 16),
       ],
     );
   }
